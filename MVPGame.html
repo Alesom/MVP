@@ -1,0 +1,231 @@
+<!doctype html> 
+<html lang="en">
+<head> 
+	<meta charset="UTF-8" />
+	<title>MVPGame</title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        canvas {
+		   display : block;
+		   margin-top: 1%;
+		   margin-left: 20%;
+		   margin-right: 20%;
+		}
+    </style>
+</head>
+<body bgcolor="white">
+												
+	<script type="text/javascript">
+		var game = new Phaser.Game(800, 600, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
+		
+	
+		function preload() {
+			game.load.image('paredeVertical', 'assets/ParedeVertical.png');
+			game.load.image('ParedeHorisontal', 'assets/ParedeHorisontal.png');
+			game.load.image('player', 'assets/BolaAzul.png');
+			game.load.image('zumbi', 'assets/BolaVermelha.png');
+			game.load.image('portal', 'assets/Portal.png');
+			game.load.image('buttonPlay', 'assets/play.png');
+		}
+	
+		var parede;
+		var fase=1;
+		var zumbis;
+		var portal;
+		
+		function create() {
+			
+			parede=game.add.group();
+			criaFases(fase);
+			zumbis=game.add.group();
+			
+			criaZumbis(fase);
+			criaPlayer(fase);
+			var ab = game.add.button(750, 550, 'buttonPlay', inity, this, 2, 1, 0);
+			ab.scale.setTo(0.19, 0.19);
+		}
+		function update() {
+	//		game.physics.collide(parede, zumbis);
+	//		game.physics.collide(player, parede);
+		}
+		
+		function inity(){
+			
+			alert('clicked');
+		}
+		
+		function criaPlayer(a1){
+			switch(a1){
+				case 1:
+					var player=game.add.sprite( 390 ,10,'player');
+					player.scale.setTo(0.1, 0.1);
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+				case 9:
+					break;
+				case 10:
+					break;
+				default:
+					break;
+					
+			}
+		}
+		
+		function criaFases(a1){
+		
+			switch(a1){
+				case 1:
+					var parede1=parede.create(0,400 , 'paredeVertical');
+					parede1.body.immovable = true;
+					
+					var parede2=parede.create(300,405 , 'ParedeHorisontal');
+					parede2.body.immovable = true;
+					
+					var parede3=parede.create(400,85 , 'ParedeHorisontal');
+					parede3.body.immovable = true;
+					
+					portal=game.add.sprite(250,550,'portal');
+					portal.scale.setTo(0.2, 0.2);
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+				case 9:
+					break;
+				case 10:
+					break;
+				default:
+					break;
+					
+			}
+		}
+		
+		function criaZumbis(a1){
+			switch(a1){
+				case 1:
+					for (var i=0;i<15;i++){
+						switch (i){
+							case 0:
+								a=50;
+								b=100;
+								break;
+							case 1:
+								a=280;
+								b=195;
+								break;
+							case 2:
+								a=160;
+								b=150;
+								break;
+							case 3:
+								a=220;
+								b=112;
+								break;
+							case 4:
+								a=120;
+								b=250;
+								break;
+							case 5:
+								a=210;
+								b=300;
+								break;
+							case 6:
+								a=100;
+								b=500;
+								break;
+								
+								//feito
+							case 7:
+								a=600;
+								b=320;
+								break;
+							case 8:
+								a=700;
+								b=100;
+								break;
+							case 9:
+								a=500;
+								b=440;
+								break;
+							case 10:
+								a=450;
+								b=120;
+								break;
+							case 11:
+								a=490;
+								b=280;
+								break;
+							case 12:
+								a=390;
+								b=420;
+								break;
+							case 13:
+								a=220;
+								b=450;
+								break;
+							case 14:
+								a=100;
+								b=500;
+								break;
+						}
+						var zmb1=zumbis.create(a,b , 'zumbi');	
+						zmb1.scale.setTo(0.1, 0.1);
+					}
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+				case 9:
+					break;
+				case 10:
+					break;
+				default:
+					break;
+					
+			}
+		}
+		function render(){
+			
+			
+		}
+	</script>
+</body>
+</html>
